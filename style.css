@@ -1,82 +1,314 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio Prompt</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="page-grid">
-        <header class="top-nav">
-            <div class="top-left">
-                <div class="brand-top">
-                    <span class="brand-name">helios ocaña</span>
-                    <span class="brand-handle">@heliouz_ · mexico</span>
-                </div>
-                <div class="lang-switch">
-                    <button class="lang active">ES</button>
-                    <button class="lang">EN</button>
-                </div>
-            </div>
-            <nav class="main-nav">
-                <a href="#home">inicio</a>
-                <a href="#servicios">publicaciones</a>
-                <a href="#proyectos">proyectos</a>
-                <a href="#contacto">contacto</a>
-            </nav>
-        </header>
+﻿* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        <section class="hero" id="home">
-            <div class="hero-left">
-                <h1>heliouz</h1>
-                <p class="subtitle">investigo, divulgo y a veces programo.</p>
-            </div>
-            <div class="hero-right">
-                <p>ing. mecánico · m.sc. material engineering</p>
-                <p>+1.1m en tiktok · @heliouz_</p>
-                <p>+195k en instagram · @heliouz_</p>
-            </div>
-        </section>
+body {
+  min-height: 100vh;
+  background: #f2eee4;
+  color: #1e1e1e;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
 
-        <section class="panel">
-            <div class="graph-panel"></div>
-            <div class="info-panel">
-                <span class="section-label">SOBRE MÍ</span>
-                <p>Ingeniero mecánico y maestro en ciencia de materiales por la UNAM — me especialicé en aceros avanzados de alta resistencia. Divulgo ciencia en redes sociales y tengo más de 1.1M de seguidores en TikTok.</p>
-                <p>De día programo cosas importantes en la industria financiera. De noche hago mapas, simulaciones y videos que nadie me pidió.</p>
+.page-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 24px;
+  margin: 20px 250px 0;
+}
 
-                <div class="detail-grid">
-                    <div class="detail-block">
-                        <span class="detail-title">DATOS</span>
-                        <p>ing. mecánico · m.sc. material engineering</p>
-                    </div>
-                    <div class="detail-block">
-                        <span class="detail-title">ESPECIALIDAD</span>
-                        <p>datos · visualización · IA</p>
-                    </div>
-                    <div class="detail-block">
-                        <span class="detail-title">DIVULGACIÓN</span>
-                        <p>+1.1m · tiktok<br>+195k · instagram</p>
-                    </div>
-                    <div class="detail-block">
-                        <span class="detail-title">CÓDIGO</span>
-                        <p>python · sql · ia</p>
-                    </div>
-                    <div class="detail-block contact-block">
-                        <span class="detail-title">CONTACTO</span>
-                        <p><a href="#contacto">ver página →</a></p>
-                    </div>
-                </div>
-            </div>
-        </section>
+.top-nav {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+  padding-bottom: 16px;
+}
 
-        <footer class="site-footer">
-            <div>
-                <p>helios ocaña</p>
-                <p>cdmx · © 2026</p>
-            </div>
-        </footer>
-    </div>
-</body>
-</html>
+.top-left {
+  display: grid;
+  gap: 10px;
+}
+
+.brand-top {
+  display: grid;
+  gap: 4px;
+}
+
+.brand-name,
+.brand-handle {
+  display: block;
+}
+
+.brand-name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.brand-handle {
+  color: #6d6a61;
+  font-size: 0.9rem;
+}
+
+.lang-switch {
+  display: flex;
+  gap: 8px;
+}
+
+.lang {
+  border: none;
+  background: #1e1e1e;
+  color: #f6f3ee;
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  letter-spacing: 0.15em;
+}
+
+.lang.active {
+  opacity: 1;
+}
+
+.main-nav {
+  display: grid;
+  justify-items: end;
+  gap: 10px;
+}
+
+.main-nav a {
+  color: #6d6a61;
+  font-family: Georgia, serif;
+  font-size: clamp(2.4rem, 3vw, 3.4rem);
+  text-decoration: none;
+  line-height: 0.95;
+  text-transform: none;
+}
+
+.main-nav a:first-child {
+  color: #1e1e1e;
+}
+
+.hero {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: end;
+  padding: 40px 0 24px;
+  gap: 24px;
+}
+
+.hero-left h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(4.5rem, 8vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: #1e1e1e;
+}
+
+.subtitle {
+  margin-top: 12px;
+  font-size: clamp(1.6rem, 2.4vw, 2.8rem);
+  font-style: italic;
+  color: #6d6a61;
+  max-width: 42rem;
+}
+
+.hero-right {
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+  color: #6d6a61;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.panel {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.graph-panel {
+  min-height: 520px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(246, 241, 232, 1) 0%, rgba(242, 238, 228, 1) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.graph-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(138, 125, 110, 0.16) 1px, transparent 1px), linear-gradient(90deg, rgba(138, 125, 110, 0.16) 1px, transparent 1px);
+  background-size: 100% 60px, 60px 100%;
+  opacity: 0.55;
+}
+
+.graph-panel::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 120px;
+  bottom: 40px;
+  border-left: 1px dashed rgba(138, 125, 110, 0.22);
+}
+
+.info-panel {
+  background: #fff;
+  padding: 32px 28px;
+  border-radius: 24px;
+  box-shadow: 0 18px 60px rgba(66, 54, 36, 0.08);
+  display: grid;
+  gap: 18px;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8f8274;
+}
+
+.info-panel p {
+  color: #3a3a3a;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.detail-block {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 16px;
+}
+
+.detail-title {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8f8274;
+  margin-bottom: 10px;
+}
+
+.detail-block p {
+  margin: 0;
+  color: #3a3a3a;
+  line-height: 1.75;
+}
+
+.detail-block.contact-block {
+  grid-column: span 2;
+}
+
+.detail-block a {
+  color: #1e1e1e;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.content-grid {
+  display: none;
+}
+
+.page-section {
+  background: #fff;
+  padding: 28px;
+  border-radius: 24px;
+  box-shadow: 0 14px 34px rgba(66, 54, 36, 0.06);
+  grid-column: span 6;
+}
+
+.page-section h2 {
+  margin-bottom: 16px;
+  color: #1e1e1e;
+  font-family: Georgia, serif;
+  font-size: 1.35rem;
+}
+
+.page-section p {
+  color: #5d5a50;
+  line-height: 1.85;
+}
+
+.site-footer {
+  grid-column: 1 / -1;
+  padding: 24px 0 36px;
+  text-align: center;
+  color: #6d6a61;
+}
+
+.site-footer p {
+  margin: 6px 0;
+}
+
+@media (max-width: 1140px) {
+  .page-grid {
+    margin: 20px 40px 0;
+  }
+
+  .main-nav {
+    align-items: start;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-right {
+    justify-items: start;
+  }
+
+  .panel,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-section {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-grid {
+    margin: 20px 16px 0;
+  }
+
+  .top-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .main-nav {
+    justify-items: start;
+    gap: 6px;
+  }
+
+  .main-nav a {
+    font-size: 2rem;
+  }
+
+  .hero {
+    padding-bottom: 16px;
+  }
+
+  .panel {
+    gap: 18px;
+  }
+
+  .hero-left h1 {
+    font-size: clamp(3.5rem, 10vw, 5.2rem);
+  }
+}
